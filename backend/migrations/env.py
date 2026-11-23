@@ -5,6 +5,7 @@ from alembic import context
 from sqlalchemy import URL, engine_from_config, pool
 
 from app.core.config import get_settings
+import app.models  # Registers all models with SQLAlchemy metadata
 from app.db.base import Base
 
 # Import models here as they are created.
