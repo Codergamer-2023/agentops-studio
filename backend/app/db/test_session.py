@@ -12,6 +12,11 @@ if settings.test_database_name == settings.postgres_db:
         "Test database must be different from the development database."
     )
 
+if "_test" not in settings.test_database_name.lower():
+    raise RuntimeError(
+        "Test database name must contain '_test' for safety."
+    )
+
 test_database_url = URL.create(
     drivername="postgresql+psycopg",
     username=settings.postgres_user,
